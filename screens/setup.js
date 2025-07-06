@@ -9,6 +9,28 @@ import BluetoothScanner from '../component/bluetooth/BluetoothScanner';
 
 const Stack = createNativeStackNavigator();
 
+
+const Setup = () => {
+  const {
+    requestPermissions,
+    scanForDevices,
+    allDevices,
+    connectToDevice,
+    connected,
+    disconnect,
+  } = useBLE();
+
+  const scan = async () => {
+    const isPermissionsEnabled = await requestPermissions();
+
+    if (isPermissionsEnabled) {
+      scanForDevices();
+    }
+  }
+
+  
+}
+
 export default function SetupScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

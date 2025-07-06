@@ -170,7 +170,6 @@ const startStreamingData = async (device: Device) => {
           const decodedValue = Buffer.from(base64Value, 'base64').toString('utf8');
           if (decodedValue === "DONE") {
             console.log("☕ Coffee is done!");
-            // You could add a UI alert here
           }
         }
       }

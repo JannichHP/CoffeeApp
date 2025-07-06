@@ -1,4 +1,4 @@
-import { Animated, FlatList, StyleSheet, Button, Text, View } from "react-native";
+import { Animated, FlatList, StyleSheet, View } from "react-native";
 import React, {useRef, useState} from 'react';
 import SlideItem from "./SlideItem";
 import SliderData from "../data/SliderData";
@@ -10,15 +10,13 @@ const Slider = () => {
 
     const handleOnScroll = event => {
         Animated.event(
-            [
-                {
-                    nativeEvent: {
-                        contentOffset: {
-                            x: scrollX,
-                        }
+            [{
+                nativeEvent: {
+                    contentOffset: {
+                        x: scrollX,
                     }
                 }
-            ], 
+            }], 
             {
             useNativeDriver: false,
             },
@@ -26,7 +24,6 @@ const Slider = () => {
     };
 
     const handleOnViewableItemsChanged = useRef(({viewableItems}) => {
-        console.log('viewableItems', viewableItems);
         setIndex(viewableItems[0].index);
     }).current;
 
